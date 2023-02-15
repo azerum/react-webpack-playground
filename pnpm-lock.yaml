@@ -7,6 +7,7 @@ specifiers:
   '@babel/preset-react': ^7.18.6
   '@pmmmwh/react-refresh-webpack-plugin': ^0.5.10
   babel-loader: ^9.1.2
+  core-js: '3'
   html-webpack-plugin: ^5.5.0
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -16,6 +17,7 @@ specifiers:
   webpack-dev-server: ^4.11.1
 
 dependencies:
+  core-js: 3.28.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -2058,6 +2060,11 @@ packages:
     resolution: {integrity: sha512-DSOVleA9/v3LNj/vFxAPfUHttKTzrB2RXhAPvR5TPXn4vrra3Z2ssytvRyt8eruJwAfwAiFADEbrjcRdcvPLQQ==}
     requiresBuild: true
     dev: true
+
+  /core-js/3.28.0:
+    resolution: {integrity: sha512-GiZn9D4Z/rSYvTeg1ljAIsEqFm0LaN9gVtwDCrKL80zHtS31p9BAjmTxVqTQDMpwlMolJZOFntUG2uwyj7DAqw==}
+    requiresBuild: true
+    dev: false
 
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}

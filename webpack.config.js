@@ -35,7 +35,19 @@ module.exports = {
                     loader: 'babel-loader',
 
                     options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react'],
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    useBuiltIns: 'entry',
+
+                                    corejs: {
+                                        version: '3.0'
+                                    }
+                                }
+                            ], 
+                            '@babel/preset-react'
+                        ],
 
                         plugins: process.env.NODE_ENV === 'production'
                             ? []
