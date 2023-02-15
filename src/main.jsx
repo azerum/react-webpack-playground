@@ -1,3 +1,8 @@
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import image from './js-ecosystem.jpg';
+
 const users = [
     { name: 'Bob' },
     { name: 'Jack' },
@@ -15,11 +20,12 @@ function Counter({ initialCount }) {
                 {users.map((u, i) => <li key={i}>{u.name}</li>)}
             </ul>
             <button onClick={() => setCount(prev => prev - 1)}>-</button>
+            <img src={image} />
         </div>
     );
 }
 
-const app = <Counter initialCount={42}></Counter>
+const app = <Counter initialCount={42} />;
 
 const root = ReactDOM.createRoot(banana);
 root.render(app);
