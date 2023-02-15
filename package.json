@@ -1,4 +1,7 @@
 {
+	"scripts": {
+		"start": "pnpm babel src --out-dir out"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.20.12",
 		"@babel/cli": "^7.20.7",
