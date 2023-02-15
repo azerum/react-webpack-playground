@@ -1,7 +1,6 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import image from './js-ecosystem.jpg';
+import cat from './cat.webp';
 
 const users = [
     { name: 'Bob' },
@@ -20,7 +19,7 @@ function Counter({ initialCount }) {
                 {users.map((u, i) => <li key={i}>{u.name}</li>)}
             </ul>
             <button onClick={() => setCount(prev => prev - 1)}>-</button>
-            <img src={image} />
+            {/* <img src={cat} /> */}
         </div>
     );
 }
