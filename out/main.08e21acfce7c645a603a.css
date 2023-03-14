@@ -1,5 +1,6 @@
 div.cat {
     background-image: url(a966f58d616742479b5e.webp);
-    height: 500px;
+    min-height: 100px;
+    transform: scale(0.5);
 }
 

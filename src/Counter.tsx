@@ -7,7 +7,7 @@ const users = [
     { name: 'Jill' }
 ];
 
-export default function Counter({ initialCount }) {
+export default function Counter({ initialCount }: { initialCount: number }) {
     const [count, setCount] = React.useState(initialCount);
 
     return (

@@ -1,0 +1,12 @@
+{
+    /* Use latest target, latest module, preserve JSX to
+     * ensure that TypeScript doesn't emit any additional code
+     */
+    "compilerOptions": {
+        "module": "ESNext",
+        "target": "ESNext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "jsx": "preserve"
+    }
+}

@@ -1,1 +1,3 @@
 node_modules
+/ts-out
+/js-out

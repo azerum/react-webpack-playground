@@ -12,7 +12,7 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
 
     entry: {
-        main: './main.jsx',
+        main: './main.tsx',
     },
 
     mode: process.env.NODE_ENV,
@@ -25,38 +25,33 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
 
     module: {
         rules: [
             {
-                test: /\.jsx$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
 
-                use: {
-                    loader: 'babel-loader',
+                use: babelLoader()
+            },
 
-                    options: {
-                        presets: [
-                            [
-                                '@babel/preset-env',
-                                {
-                                    useBuiltIns: 'entry',
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
 
-                                    corejs: {
-                                        version: '3.0'
-                                    }
-                                }
-                            ],
-                            '@babel/preset-react'
-                        ],
-
-                        plugins: process.env.NODE_ENV === 'production'
-                            ? []
-                            : ['react-refresh/babel']
+                use: [
+                    babelLoader(),
+                    
+                    {
+                        loader: 'ts-loader',
+                        
+                        options: {
+                            configFile: path.resolve(__dirname, 'tsconfig.json')
+                        }
                     }
-                }
+                ]
             },
 
             {
@@ -98,3 +93,32 @@ module.exports = {
         })
     ].filter(p => p !== null)
 };
+
+/**
+ * @returns {import('webpack').RuleSetUseItem}
+ */
+function babelLoader() {
+    return {
+        loader: 'babel-loader',
+
+        options: {
+            presets: [
+                [
+                    '@babel/preset-env',
+                    {
+                        useBuiltIns: 'entry',
+
+                        corejs: {
+                            version: '3.0'
+                        }
+                    }
+                ],
+                '@babel/preset-react'
+            ],
+
+            plugins: process.env.NODE_ENV === 'production'
+                ? []
+                : ['react-refresh/babel']
+        }
+    }
+}

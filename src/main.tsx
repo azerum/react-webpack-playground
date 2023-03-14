@@ -6,7 +6,7 @@ import Counter from './Counter';
 
 const app = <Counter initialCount={42} />;
 
-const container = document.querySelector('#root')
+const container = document.querySelector('#root')!;
 const root = ReactDOM.createRoot(container);
 
 root.render(app);
@@ -28,13 +28,13 @@ const pipe = (...fns) => x => fns.reduce(
 
 pipe(a, b)(42).then(console.log);
 
-function a(value) {
+function a(value: number) {
     return new Promise((resolve, _) => {
         setTimeout(() => resolve(value), 5000)
     });
 }
 
-function b(value) {
+function b(value: number) {
     return new Promise((resolve, _) => {
         setTimeout(() => resolve(value * 2), 1000)
     });
