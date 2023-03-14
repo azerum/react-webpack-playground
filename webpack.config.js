@@ -1,13 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+//For CSS stuff, see https://github.com/webpack-contrib/css-loader#recommend
 
 /**
  * @type {import('webpack').Configuration}
  */
 module.exports = {
     context: path.resolve(__dirname, 'src'),
-    
+
     entry: {
         main: './main.jsx',
     },
@@ -45,7 +48,7 @@ module.exports = {
                                         version: '3.0'
                                     }
                                 }
-                            ], 
+                            ],
                             '@babel/preset-react'
                         ],
 
@@ -54,6 +57,22 @@ module.exports = {
                             : ['react-refresh/babel']
                     }
                 }
+            },
+
+            {
+                test: /\.css$/,
+
+                use: [
+                    MiniCssExtractPlugin.loader,
+
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            esModule: false,
+                            url: true
+                        }
+                    }
+                ]
             },
 
             {
@@ -72,6 +91,10 @@ module.exports = {
 
         process.env.NODE_ENV === 'production'
             ? null
-            : new ReactRefreshWebpackPlugin()
+            : new ReactRefreshWebpackPlugin(),
+
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
+        })
     ].filter(p => p !== null)
 };

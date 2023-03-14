@@ -6,7 +6,9 @@ import Counter from './Counter';
 
 const app = <Counter initialCount={42} />;
 
-const root = ReactDOM.createRoot(banana);
+const container = document.querySelector('#root')
+const root = ReactDOM.createRoot(container);
+
 root.render(app);
 
 //[1, 2, 3, 4], 42

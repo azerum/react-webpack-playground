@@ -1,0 +1,5 @@
+div.cat {
+    background-image: url('./cat.webp');
+    min-height: 100px;
+    transform: scale(0.5);
+}
